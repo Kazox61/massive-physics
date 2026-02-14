@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\fixed-point\Runtime\FixedPoint.csproj" />
+      <ProjectReference Include="..\..\massive-ecs\Runtime\Massive.csproj" />
+      <ProjectReference Include="..\..\massive-netcode\Runtime\MassiveNetcode.csproj" />
+      <ProjectReference Include="..\..\massive-qol\Runtime\MassiveQol.csproj" />
+      <ProjectReference Include="..\..\MassiveCommon\MassiveCommon.csproj" />
+    </ItemGroup>
+</Project>

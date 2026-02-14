@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Fixed64;
 using Massive;
 using Unity.IL2CPP.CompilerServices;
 
