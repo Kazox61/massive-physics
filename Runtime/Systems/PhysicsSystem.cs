@@ -64,16 +64,25 @@ public class PhysicsSystem : NetSystem, IUpdate {
 					continue;
 				}
 				
-				boxColliderA.Center = transformA.Position;
-				boxColliderB.Center = transformB.Position;
+				var proxyA = new BoxColliderProxy {
+					Position = transformA.Position,
+					Rotation = transformA.Rotation,
+					HalfExtents = boxColliderA.HalfExtents
+				};
 
-				var gjk = GJK.Calculate(boxColliderA, boxColliderB);
+				var proxyB = new BoxColliderProxy {
+					Position = transformB.Position,
+					Rotation = transformB.Rotation,
+					HalfExtents = boxColliderB.HalfExtents
+				};
+
+				var gjk = GJK.Calculate(proxyA, proxyB);
 
 				if (!gjk.CollisionHappened) {
 					continue;
 				}
 
-				var collision = EPA.Calculate(gjk.Simplex, boxColliderA, boxColliderB);
+				var collision = EPA.Calculate(gjk.Simplex, proxyA, proxyB);
 
 				var isTrigger = boxColliderA.IsTrigger || boxColliderB.IsTrigger;
 
